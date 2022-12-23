@@ -1,10 +1,10 @@
 FROM openjdk AS Build_Image
-RUN sudo yum install maven -y
+RUN yum install maven -y
 RUN git clone -b vp-docker https://github.com/devopshydclub/vprofile-project.git
 RUN Sudo cd vprofile-project && mvn install 
 
 FROM tomcat
-RUN sudo rm -rf /usr/local/tomcat/webapps/*
+RUN  rm -rf /usr/local/tomcat/webapps/*
 COPY --from=Build-Image vprofile-project/target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war 
 EXPOSE 8080
 CMD ["catalina.sh","run"]
