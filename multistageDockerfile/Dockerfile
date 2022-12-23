@@ -5,6 +5,6 @@ RUN  cd vprofile-project && mvn install
 
 FROM tomcat
 RUN  rm -rf /usr/local/tomcat/webapps/*
-COPY --from=Build-Image vprofile-project/target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war 
+COPY --from=Build_Image vprofile-project/target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war 
 EXPOSE 8080
 CMD ["catalina.sh","run"]
