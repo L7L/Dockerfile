@@ -1,6 +1,7 @@
 FROM openjdk:8 AS Build_Image
 RUN  apt update && apt install maven -y
-COPY C:\Users\rsjat\Downloads\Devops_project\vprofile  vprofile
+RUN  mkdir  vprofile
+COPY C:\Users\rsjat\Downloads\Devops_project\vprofile\src  vprofile
 RUN  cd vprofile && mvn install 
 
 FROM tomcat
