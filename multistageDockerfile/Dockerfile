@@ -1,4 +1,4 @@
-FROM openjdk AS Build_Image
+FROM openjdk:8 AS Build_Image
 RUN  apt update && apt install maven -y
 RUN git clone -b vp-docker https://github.com/devopshydclub/vprofile-project.git
 RUN  cd vprofile-project && mvn install 
