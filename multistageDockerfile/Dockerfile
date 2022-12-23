@@ -1,5 +1,5 @@
 FROM openjdk AS Build_Image
-RUN yum install maven -y
+RUN  apt update && apt install maven -y
 RUN git clone -b vp-docker https://github.com/devopshydclub/vprofile-project.git
 RUN  cd vprofile-project && mvn install 
 
